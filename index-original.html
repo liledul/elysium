@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title
+      data-en="Elysium | Wealth Management for the Discerning"
+      data-lt="[LT] Elysium | Wealth Management for the Discerning"
+    >
+      Elysium | Wealth Management for the Discerning
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Critical loading styles to avoid FOUC */
+      body {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      body.loaded {
+        opacity: 1;
+      }
+
+      /* Transition logo specific styles */
+      .transition-logo {
+        font-family: "EB Garamond", serif;
+        color: #8b381e;
+        position: fixed;
+        z-index: 2000;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.5s ease;
+      }
+
+      /* Loading screen improvements */
+      #loading-screen {
+        background-color: #fffcf7;
+        transition: background-color 1.2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader-content">
+        <h1 class="loader-logo" data-en="Elysium" data-lt="[LT] Elysium">
+          Elysium
+        </h1>
+        <h2
+          class="hero-subtitle-loader"
+          data-en="Family Office"
+          data-lt="[LT] Family Office"
+        >
+          Family Office
+        </h2>
+        <p
+          class="hero-paragraph-loader"
+          data-en="Preserving capital and creating enduring wealth across generations"
+          data-lt="[LT] Preserving capital and creating enduring wealth across generations"
+        >
+          Preserving capital and creating enduring wealth across generations
+        </p>
+        <!-- <div class="hero-cta-loader">
+          <a href="#contact" class="btn-primary" data-en="Request Private Consultation" data-lt="[LT] Request Private Consultation"
+            >Request Private Consultation</a
+          >
+        </div> -->
+        <div class="loader-bar"><span></span></div>
+      </div>
+      <canvas id="animation-canvas"></canvas>
+    </div>
+
+    <header>
+      <nav>
+        <div class="logo" data-en="Elysium" data-lt="[LT] Elysium">Elysium</div>
+        <div class="nav-links">
+          <a href="#what-we-do" data-en="What We Do" data-lt="[LT] What We Do"
+            >What We Do</a
+          >
+          <a href="#approach" data-en="Our Approach" data-lt="[LT] Our Approach"
+            >Our Approach</a
+          >
+          <a href="#why-us" data-en="Philosophy" data-lt="[LT] Philosophy"
+            >Philosophy</a
+          >
+          <div class="lang-switcher-container">
+            <div class="lang-switcher">
+              <a href="#" data-lang="en" class="lang-option active">EN</a>
+              <span class="lang-separator">/</span>
+              <a href="#" data-lang="lt" class="lang-option">LT</a>
+            </div>
+          </div>
+          <a
+            href="#contact"
+            class="nav-cta"
+            data-en="Contact"
+            data-lt="[LT] Contact"
+            >Contact</a
+          >
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Restore Hero Section Shell -->
+      <section id="hero" class="full-height">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <!-- Content will be moved here by JS -->
+        </div>
+        <div class="scroll-indicator"></div>
+      </section>
+
+      <!-- What We Do -->
+      <section id="what-we-do" class="full-height">
+        <div class="section-background"></div>
+        <div class="container">
+          <div class="section-header">
+            <span
+              class="section-subtitle"
+              data-en="Our Services"
+              data-lt="[LT] Our Services"
+              >Our Services</span
+            >
+            <h2 data-en="What We Do" data-lt="[LT] What We Do">What We Do</h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p
+            class="section-intro"
+            data-en="Elysium focuses on capital preservation and long-term wealth creation for a select group of families, applying timeless principles of ownership, patience, and careful stewardship."
+            data-lt="[LT] Elysium focuses on capital preservation and long-term wealth creation for a select group of families, applying timeless principles of ownership, patience, and careful stewardship."
+          >
+            Elysium focuses on capital preservation and long-term wealth
+            creation for a select group of families, applying timeless
+            principles of ownership, patience, and careful stewardship.
+          </p>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-globe"></div>
+              </div>
+              <h3
+                data-en="Capital Preservation"
+                data-lt="[LT] Capital Preservation"
+              >
+                Capital Preservation
+              </h3>
+              <p
+                data-en="Protecting your wealth from the corrosive effects of inflation, confiscation, currency debasement, and excessive risk through thoughtful, long-term asset ownership."
+                data-lt="[LT] Protecting your wealth from the corrosive effects of inflation, confiscation, currency debasement, and excessive risk through thoughtful, long-term asset ownership."
+              >
+                Protecting your wealth from the corrosive effects of inflation,
+                confiscation, currency debasement, and excessive risk through
+                thoughtful, long-term asset ownership.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-shield"></div>
+              </div>
+              <h3
+                data-en="Productive Ownership"
+                data-lt="[LT] Productive Ownership"
+              >
+                Productive Ownership
+              </h3>
+              <p
+                data-en="Focus on acquiring productive enterprises and assets with enduring value that generate real returns regardless of monetary conditions and market cycles."
+                data-lt="[LT] Focus on acquiring productive enterprises and assets with enduring value that generate real returns regardless of monetary conditions and market cycles."
+              >
+                Focus on acquiring productive enterprises and assets with
+                enduring value that generate real returns regardless of monetary
+                conditions and market cycles.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-growth"></div>
+              </div>
+              <h3
+                data-en="Generational Planning"
+                data-lt="[LT] Generational Planning"
+              >
+                Generational Planning
+              </h3>
+              <p
+                data-en="Creating structures that preserve family wealth across generations, aligning financial interests with philosophical values and sound principles of stewardship."
+                data-lt="[LT] Creating structures that preserve family wealth across generations, aligning financial interests with philosophical values and sound principles of stewardship."
+              >
+                Creating structures that preserve family wealth across
+                generations, aligning financial interests with philosophical
+                values and sound principles of stewardship.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-insight"></div>
+              </div>
+              <h3
+                data-en="Strategic Intelligence"
+                data-lt="[LT] Strategic Intelligence"
+              >
+                Strategic Intelligence
+              </h3>
+              <p
+                data-en="Access to our proprietary research and carefully cultivated network of independent thinkers who provide insights beyond conventional financial analysis."
+                data-lt="[LT] Access to our proprietary research and carefully cultivated network of independent thinkers who provide insights beyond conventional financial analysis."
+              >
+                Access to our proprietary research and carefully cultivated
+                network of independent thinkers who provide insights beyond
+                conventional financial analysis.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="section-canvas-container">
+          <canvas id="services-canvas"></canvas>
+        </div>
+      </section>
+
+      <!-- The Elysium Approach -->
+      <section id="approach" class="full-height">
+        <div class="section-background diagonal"></div>
+        <div class="container">
+          <div class="section-header">
+            <span
+              class="section-subtitle"
+              data-en="Our Methodology"
+              data-lt="[LT] Our Methodology"
+              >Our Methodology</span
+            >
+            <h2 data-en="Our Approach" data-lt="[LT] Our Approach">
+              Our Approach
+            </h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p
+            class="section-intro"
+            data-en="We reject short-term speculation in favor of patient capital deployment. Our approach focuses on ownership of productive assets and businesses with intrinsic value that compound over decades."
+            data-lt="[LT] We reject short-term speculation in favor of patient capital deployment. Our approach focuses on ownership of productive assets and businesses with intrinsic value that compound over decades."
+          >
+            We reject short-term speculation in favor of patient capital
+            deployment. Our approach focuses on ownership of productive assets
+            and businesses with intrinsic value that compound over decades.
+          </p>
+
+          <div class="approach-grid">
+            <div class="principle">
+              <div class="principle-number">01</div>
+              <h3 data-en="Ownership Mindset" data-lt="[LT] Ownership Mindset">
+                Ownership Mindset
+              </h3>
+              <p
+                data-en="We think like permanent owners, not temporary holders. This philosophy guides all investment decisions, from business acquisitions to security selection, emphasizing long-term intrinsic value over market fluctuations."
+                data-lt="[LT] We think like permanent owners, not temporary holders. This philosophy guides all investment decisions, from business acquisitions to security selection, emphasizing long-term intrinsic value over market fluctuations."
+              >
+                We think like permanent owners, not temporary holders. This
+                philosophy guides all investment decisions, from business
+                acquisitions to security selection, emphasizing long-term
+                intrinsic value over market fluctuations.
+              </p>
+            </div>
+            <div class="principle">
+              <div class="principle-number">02</div>
+              <h3 data-en="Margin of Safety" data-lt="[LT] Margin of Safety">
+                Margin of Safety
+              </h3>
+              <p
+                data-en="We prioritize capital preservation through careful analysis of risk before potential returns. All investments must offer significant protection against permanent loss through tangible assets and prudent valuations."
+                data-lt="[LT] We prioritize capital preservation through careful analysis of risk before potential returns. All investments must offer significant protection against permanent loss through tangible assets and prudent valuations."
+              >
+                We prioritize capital preservation through careful analysis of
+                risk before potential returns. All investments must offer
+                significant protection against permanent loss through tangible
+                assets and prudent valuations.
+              </p>
+            </div>
+            <div class="principle">
+              <div class="principle-number">03</div>
+              <h3 data-en="Patient Fortitude" data-lt="[LT] Patient Fortitude">
+                Patient Fortitude
+              </h3>
+              <p
+                data-en="We maintain discipline through market cycles, avoiding the fads and speculative manias that destroy capital. True wealth is built through patience, thoughtful analysis, and decisive action when opportunity presents."
+                data-lt="[LT] We maintain discipline through market cycles, avoiding the fads and speculative manias that destroy capital. True wealth is built through patience, thoughtful analysis, and decisive action when opportunity presents."
+              >
+                We maintain discipline through market cycles, avoiding the fads
+                and speculative manias that destroy capital. True wealth is
+                built through patience, thoughtful analysis, and decisive action
+                when opportunity presents.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Removed approach canvas -->
+      </section>
+
+      <!-- Philosophy -->
+      <section id="why-us" class="full-height">
+        <div class="section-background"></div>
+        <div class="container">
+          <div class="section-header">
+            <span
+              class="section-subtitle"
+              data-en="Our Values"
+              data-lt="[LT] Our Values"
+              >Our Values</span
+            >
+            <h2 data-en="Our Philosophy" data-lt="[LT] Our Philosophy">
+              Our Philosophy
+            </h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p
+            class="section-intro"
+            data-en="We believe that lasting wealth is created through disciplined ownership of productive assets and businesses, not through speculation, leverage, or financial engineering."
+            data-lt="[LT] We believe that lasting wealth is created through disciplined ownership of productive assets and businesses, not through speculation, leverage, or financial engineering."
+          >
+            We believe that lasting wealth is created through disciplined
+            ownership of productive assets and businesses, not through
+            speculation, leverage, or financial engineering.
+          </p>
+
+          <div class="philosophy-layout">
+            <div class="founder-essence">
+              <div class="quote-container">
+                <blockquote
+                  data-en="True wealth management is about the vigilant preservation of capital, the patient ownership of productive assets, and the thoughtful transfer of both financial and philosophical capital across generations."
+                  data-lt="[LT] True wealth management is about the vigilant preservation of capital, the patient ownership of productive assets, and the thoughtful transfer of both financial and philosophical capital across generations."
+                >
+                  "True wealth management is about the vigilant preservation of
+                  capital, the patient ownership of productive assets, and the
+                  thoughtful transfer of both financial and philosophical
+                  capital across generations."
+                </blockquote>
+                <div class="quote-decoration"></div>
+                <p
+                  class="quote-attribution"
+                  data-en="— Skirmantas Paulavicius & Laurynas Pamparas"
+                  data-lt="[LT] — Skirmantas Paulavicius & Laurynas Pamparas"
+                >
+                  — Skirmantas Paulavicius & Laurynas Pamparas
+                </p>
+              </div>
+              <div class="founder-image"></div>
+            </div>
+
+            <div class="distinction-points">
+              <div class="distinction">
+                <div class="distinction-icon">
+                  <div class="icon-independence"></div>
+                </div>
+                <h3
+                  data-en="Unconditional Independence"
+                  data-lt="[LT] Unconditional Independence"
+                >
+                  Unconditional Independence
+                </h3>
+                <p
+                  data-en="We maintain complete freedom from external pressures, allowing us to focus solely on protecting and growing your family's wealth over generations"
+                  data-lt="[LT] We maintain complete freedom from external pressures, allowing us to focus solely on protecting and growing your family's wealth over generations"
+                >
+                  We maintain complete freedom from external pressures, allowing
+                  us to focus solely on protecting and growing your family's
+                  wealth over generations
+                </p>
+              </div>
+              <div class="distinction">
+                <div class="distinction-icon">
+                  <div class="icon-local"></div>
+                </div>
+                <h3
+                  data-en="Aligned Interests"
+                  data-lt="[LT] Aligned Interests"
+                >
+                  Aligned Interests
+                </h3>
+                <p
+                  data-en="We manage our own capital alongside yours, ensuring that our decisions reflect genuine conviction rather than abstract theory or conventional thinking"
+                  data-lt="[LT] We manage our own capital alongside yours, ensuring that our decisions reflect genuine conviction rather than abstract theory or conventional thinking"
+                >
+                  We manage our own capital alongside yours, ensuring that our
+                  decisions reflect genuine conviction rather than abstract
+                  theory or conventional thinking
+                </p>
+              </div>
+              <div class="distinction">
+                <div class="distinction-icon">
+                  <div class="icon-access"></div>
+                </div>
+                <h3
+                  data-en="Institutional Quality"
+                  data-lt="[LT] Institutional Quality"
+                >
+                  Institutional Quality
+                </h3>
+                <p
+                  data-en="Our structure provides individual families access to investment opportunities, research, and expertise typically available only to the world's largest institutions"
+                  data-lt="[LT] Our structure provides individual families access to investment opportunities, research, and expertise typically available only to the world's largest institutions"
+                >
+                  Our structure provides individual families access to
+                  investment opportunities, research, and expertise typically
+                  available only to the world's largest institutions
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-background gradient"></div>
+        <div class="container">
+          <div class="section-header">
+            <span
+              class="section-subtitle"
+              data-en="Get In Touch"
+              data-lt="[LT] Get In Touch"
+              >Get In Touch</span
+            >
+            <h2
+              data-en="Private Consultation"
+              data-lt="[LT] Private Consultation"
+            >
+              Private Consultation
+            </h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p
+            class="section-intro"
+            data-en="Elysium maintains a deliberately limited client base to ensure the highest level of service and attention. We welcome conversations with families who share our commitment to principled wealth stewardship."
+            data-lt="[LT] Elysium maintains a deliberately limited client base to ensure the highest level of service and attention. We welcome conversations with families who share our commitment to principled wealth stewardship."
+          >
+            Elysium maintains a deliberately limited client base to ensure the
+            highest level of service and attention. We welcome conversations
+            with families who share our commitment to principled wealth
+            stewardship.
+          </p>
+
+          <div class="contact-container">
+            <div class="contact-info">
+              <h3 data-en="Direct Contact" data-lt="[LT] Direct Contact">
+                Direct Contact
+              </h3>
+              <div class="contact-method">
+                <span class="method-label" data-en="Email" data-lt="[LT] Email"
+                  >Email</span
+                >
+                <a href="mailto:private@elysium.lt">private@elysium.lt</a>
+              </div>
+              <div class="contact-method">
+                <span
+                  class="method-label"
+                  data-en="Telephone"
+                  data-lt="[LT] Telephone"
+                  >Telephone</span
+                >
+                <a href="tel:+37061234567">+370 612 34567</a>
+              </div>
+              <div class="contact-method">
+                <span
+                  class="method-label"
+                  data-en="Location"
+                  data-lt="[LT] Location"
+                  >Location</span
+                >
+                <span
+                  data-en="Gedimino pr. 20, Vilnius"
+                  data-lt="[LT] Gedimino pr. 20, Vilnius"
+                  >Gedimino pr. 20, Vilnius</span
+                >
+              </div>
+
+              <p
+                class="exclusivity-note"
+                data-en="By appointment only. All inquiries are treated with the utmost confidentiality."
+                data-lt="[LT] By appointment only. All inquiries are treated with the utmost confidentiality."
+              >
+                By appointment only. All inquiries are treated with the utmost
+                confidentiality.
+              </p>
+            </div>
+
+            <div class="contact-form-container">
+              <form id="contact-form" class="contact-form">
+                <div class="form-field">
+                  <label for="name" data-en="Full Name" data-lt="[LT] Full Name"
+                    >Full Name</label
+                  >
+                  <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="email"
+                    data-en="Email Address"
+                    data-lt="[LT] Email Address"
+                    >Email Address</label
+                  >
+                  <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="phone"
+                    data-en="Phone Number"
+                    data-lt="[LT] Phone Number"
+                    >Phone Number</label
+                  >
+                  <input type="tel" id="phone" name="phone" required />
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="investmentLevel"
+                    data-en="Investment Capacity (€)"
+                    data-lt="[LT] Investment Capacity (€)"
+                    >Investment Capacity (€)</label
+                  >
+                  <select id="investmentLevel" name="investmentLevel" required>
+                    <option
+                      value=""
+                      disabled
+                      selected
+                      data-en="Select range"
+                      data-lt="[LT] Select range"
+                    >
+                      Select range
+                    </option>
+                    <option
+                      value="1-5M"
+                      data-en="€1M - €5M"
+                      data-lt="[LT] €1M - €5M"
+                    >
+                      €1M - €5M
+                    </option>
+                    <option
+                      value="5-10M"
+                      data-en="€5M - €10M"
+                      data-lt="[LT] €5M - €10M"
+                    >
+                      €5M - €10M
+                    </option>
+                    <option
+                      value="10-50M"
+                      data-en="€10M - €50M"
+                      data-lt="[LT] €10M - €50M"
+                    >
+                      €10M - €50M
+                    </option>
+                    <option value="50M+" data-en="€50M+" data-lt="[LT] €50M+">
+                      €50M+
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="message"
+                    data-en="Nature of Inquiry"
+                    data-lt="[LT] Nature of Inquiry"
+                    >Nature of Inquiry</label
+                  >
+                  <textarea id="message" name="message" rows="3"></textarea>
+                </div>
+
+                <div class="form-field privacy-consent">
+                  <input type="checkbox" id="privacy" name="privacy" required />
+                  <label
+                    for="privacy"
+                    data-en="I consent to Elysium contacting me regarding my inquiry"
+                    data-lt="[LT] I consent to Elysium contacting me regarding my inquiry"
+                    >I consent to Elysium contacting me regarding my
+                    inquiry</label
+                  >
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn-primary"
+                  data-en="Request Consultation"
+                  data-lt="[LT] Request Consultation"
+                >
+                  Request Consultation
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-logo">
+            <div class="logo" data-en="Elysium" data-lt="[LT] Elysium">
+              Elysium
+            </div>
+            <p
+              data-en="Wealth Management for the Discerning"
+              data-lt="[LT] Wealth Management for the Discerning"
+            >
+              Wealth Management for the Discerning
+            </p>
+          </div>
+
+          <div class="footer-contact">
+            <h4 data-en="Contact" data-lt="[LT] Contact">Contact</h4>
+            <p
+              data-en="Gedimino pr. 20, Vilnius"
+              data-lt="[LT] Gedimino pr. 20, Vilnius"
+            >
+              Gedimino pr. 20, Vilnius
+            </p>
+            <p>+370 612 34567</p>
+            { /* Phone number likely not translated */}
+            <p>private@elysium.lt</p>
+            { /* Email likely not translated */}
+          </div>
+
+          <div class="footer-links">
+            <h4 data-en="Navigation" data-lt="[LT] Navigation">Navigation</h4>
+            <a href="#what-we-do" data-en="What We Do" data-lt="[LT] What We Do"
+              >What We Do</a
+            >
+            <a
+              href="#approach"
+              data-en="Our Approach"
+              data-lt="[LT] Our Approach"
+              >Our Approach</a
+            >
+            <a href="#why-us" data-en="Philosophy" data-lt="[LT] Philosophy"
+              >Philosophy</a
+            >
+            <a href="#contact" data-en="Contact" data-lt="[LT] Contact"
+              >Contact</a
+            >
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p
+            data-en="&copy; 2025 Elysium Family Office. All rights reserved."
+            data-lt="[LT] &copy; 2025 Elysium Family Office. All rights reserved."
+          >
+            &copy; 2025 Elysium Family Office. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="animation.js"></script>
+    <script src="script.js"></script>
+    <script>
+      // Show body once everything is loaded
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.body.classList.add("loaded");
+        }, 200); // Small delay to ensure transitions are ready
+      });
+    </script>
+  </body>
+</html>

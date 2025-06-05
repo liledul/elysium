@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title
+      data-en="Elysium | Capital Allocation That Actually Works"
+      data-lt="Elysium | Turto valdymas įžvalgiems"
+    >
+      Elysium | Capital Allocation That Actually Works
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Critical loading styles to avoid FOUC */
+      body {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      body.loaded {
+        opacity: 1;
+      }
+
+      /* Transition logo specific styles */
+      .transition-logo {
+        font-family: "EB Garamond", serif;
+        color: #8b381e;
+        position: fixed;
+        z-index: 2000;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.5s ease;
+      }
+
+      /* Loading screen improvements */
+      #loading-screen {
+        background-color: #fffcf7;
+        transition: background-color 1.2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader-content">
+        <h1 class="loader-logo" data-en="Elysium" data-lt="Elysium">Elysium</h1>
+        <h2
+          class="hero-subtitle-loader"
+          data-en="Family Office"
+          data-lt="Šeimos biuras"
+        >
+          Family Office
+        </h2>
+        <p
+          class="hero-paragraph-loader"
+          data-en="Building generational wealth when all the old rules are broken"
+          data-lt="Kapitalo išsaugojimas ir ilgalaikio turto kūrimas per kartas"
+        >
+          Building generational wealth when all the old rules are broken
+        </p>
+        <!-- <div class="hero-cta-loader">
+          <a href="#contact" class="btn-primary" data-en="Request Private Consultation" data-lt="Prašyti privačios konsultacijos"
+            >Request Private Consultation</a
+          >
+        </div> -->
+        <div class="loader-bar"><span></span></div>
+      </div>
+      <canvas id="animation-canvas"></canvas>
+    </div>
+
+    <header>
+      <nav>
+        <div class="logo" data-en="Elysium" data-lt="Elysium">Elysium</div>
+        <div class="nav-links">
+          <a href="#what-we-do" data-en="What We Do" data-lt="Mūsų paslaugos"
+            >What We Do</a
+          >
+          <a href="#approach" data-en="Our Approach" data-lt="Mūsų požiūris"
+            >Our Approach</a
+          >
+          <a href="#why-us" data-en="Philosophy" data-lt="Filosofija"
+            >Philosophy</a
+          >
+          <a
+            href="login.html"
+            class="nav-login"
+            data-en="Family Login"
+            data-lt="Šeimos prisijungimas"
+            >Family Login</a
+          >
+          <div class="lang-switcher-container">
+            <div class="lang-switcher">
+              <a href="#" data-lang="en" class="lang-option active">EN</a>
+              <span class="lang-separator">/</span>
+              <a href="#" data-lang="lt" class="lang-option">LT</a>
+            </div>
+          </div>
+          <a
+            href="#contact"
+            class="nav-cta"
+            data-en="Contact"
+            data-lt="Kontaktai"
+            >Contact</a
+          >
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Restore Hero Section Shell -->
+      <section id="hero" class="full-height">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <!-- Content will be moved here by JS -->
+        </div>
+        <div class="scroll-indicator"></div>
+      </section>
+
+      <!-- What We Do -->
+      <section id="what-we-do" class="full-height">
+        <div class="section-background"></div>
+        <div class="container">
+          <div class="section-header">
+            <!-- <span
+              class="section-subtitle"
+              data-en="Our Services"
+              data-lt="Mūsų paslaugos"
+              >Our Services</span
+            > -->
+            <h2 data-en="What We Do" data-lt="Mūsų veikla">What We Do</h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p
+            class="section-intro"
+            data-en="Elysium cuts through the BS of modern finance. We build actual wealth for a small group of families through ownership of real assets that generate cash flow. No financial engineering, no excessive leverage, just the fundamentals."
+            data-lt="Elysium koncentruoja dėmesį į kapitalo išsaugojimą ir ilgalaikio turto kūrimą ribotai šeimų grupei, taikydama laikui nepavaldžius nuosavybės, kantrybės ir rūpestingo valdymo principus."
+          >
+            Elysium cuts through the BS of modern finance. We build actual wealth for a small group of families through ownership of real assets that generate cash flow. No financial engineering, no excessive leverage, just the fundamentals.
+          </p>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-globe"></div>
+              </div>
+              <h3
+                data-en="Capital Preservation"
+                data-lt="Kapitalo išsaugojimas"
+              >
+                Capital Preservation
+              </h3>
+              <p
+                data-en="The game is rigged. We protect your wealth from inflation, currency debasement, and the financial system's inherent instability by owning hard assets with intrinsic value."
+                data-lt="Jūsų turto apsauga nuo žalingo infliacijos, valiutos nuvertėjimo ir perteklinės rizikos poveikio, pasitelkiant apgalvotą, ilgalaikį turto valdymą."
+              >
+                The game is rigged. We protect your wealth from inflation, currency debasement, and the financial system's inherent instability by owning hard assets with intrinsic value.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-shield"></div>
+              </div>
+              <h3 data-en="Productive Ownership" data-lt="Produktyvi nuosavybė">
+                Productive Ownership
+              </h3>
+              <p
+                data-en="ETFs and index funds are for people who don't know what they're doing. We acquire businesses and assets that produce actual cash regardless of what the market thinks—because cash flow doesn't lie."
+                data-lt="Dėmesys skiriamas produktyvių įmonių ir turto, turinčių ilgalaikę vertę, įsigijimui, kurie generuoja realią grąžą nepriklausomai nuo rinkos sąlygų ir ciklų."
+              >
+                ETFs and index funds are for people who don't know what they're doing. We acquire businesses and assets that produce actual cash regardless of what the market thinks—because cash flow doesn't lie.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-growth"></div>
+              </div>
+              <h3 data-en="Generational Planning" data-lt="Kartų planavimas">
+                Generational Planning
+              </h3>
+              <p
+                data-en="Most wealth evaporates within three generations because nobody teaches how money actually works. We build structures that protect your capital long after you're gone, so your grandkids won't blow it all."
+                data-lt="Struktūrų, kurios išsaugo šeimos turtą per kartas, kūrimas, suderinant finansinius interesus su filosofinėmis vertybėmis ir patikimais valdymo principais."
+              >
+                Most wealth evaporates within three generations because nobody teaches how money actually works. We build structures that protect your capital long after you're gone, so your grandkids won't blow it all.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-insight"></div>
+              </div>
+              <h3
+                data-en="Strategic Intelligence"
+                data-lt="Strateginės įžvalgos"
+              >
+                Strategic Intelligence
+              </h3>
+              <p
+                data-en="The financial media exists to make the elite money at your expense. Our proprietary research network cuts through the noise to see where the world's actually heading, not what CNBC wants you to believe."
+                data-lt="Prieiga prie mūsų autorinių tyrimų ir kruopščiai išpuoselėto nepriklausomų ekspertų tinklo, kurie teikia įžvalgas, pranokstančias įprastinę finansinę analizę."
+              >
+                The financial media exists to make the elite money at your expense. Our proprietary research network cuts through the noise to see where the world's actually heading, not what CNBC wants you to believe.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="section-canvas-container">
+          <canvas id="services-canvas"></canvas>
+        </div>
+      </section>
+
+      <!-- The Elysium Approach -->
+      <section id="approach" class="full-height">
+        <div class="section-background diagonal"></div>
+        <div class="container">
+          <div class="section-header">
+            <!-- <span
+              class="section-subtitle"
+              data-en="Our Methodology"
+              data-lt="Mūsų metodika"
+              >Our Methodology</span
+            > -->
+            <h2 data-en="Our Approach" data-lt="Mūsų požiūris">Our Approach</h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p
+            class="section-intro"
+            data-en="Wall Street sells speculation packaged as investment. We do the opposite. We allocate capital to real businesses with proven economics that compound for decades—not whatever shiny object is trending on Twitter."
+            data-lt="Mes atmetame trumpalaikes spekuliacijas ir pirmenybę teikiame kantriam kapitalo alokavimui. Mūsų požiūris grindžiamas produktyvaus turto ir verslų, turinčių vidinę vertę, kuri kaupiasi dešimtmečiais, nuosavybe."
+          >
+            Wall Street sells speculation packaged as investment. We do the opposite. We allocate capital to real businesses with proven economics that compound for decades—not whatever shiny object is trending on Twitter.
+          </p>
+
+          <div class="approach-grid">
+            <div class="principle">
+              <div class="principle-number">01</div>
+              <h3 data-en="Ownership Mindset" data-lt="Šeimininko mąstysena">
+                Ownership Mindset
+              </h3>
+              <p
+                data-en="You want to be an owner, not a renter. Traders rent stocks; we own businesses. When you own something outright, you don't care about daily price fluctuations—you care about the cash it generates year after year."
+                data-lt="Mąstome kaip nuolatiniai savininkai, o ne laikini turėtojai. Ši filosofija lemia visus investicinius sprendimus, nuo verslo įsigijimų iki vertybinių popierių pasirinkimo, pabrėžiant ilgalaikę vidinę vertę, o ne rinkos svyravimus."
+              >
+                You want to be an owner, not a renter. Traders rent stocks; we own businesses. When you own something outright, you don't care about daily price fluctuations—you care about the cash it generates year after year.
+              </p>
+            </div>
+            <div class="principle">
+              <div class="principle-number">02</div>
+              <h3 data-en="Margin of Safety" data-lt="Saugumo marža">
+                Margin of Safety
+              </h3>
+              <p
+                data-en="The first rule is don't lose money. The second rule is see rule number one. We don't gamble with capital—every investment must have multiple layers of protection built in so when things go wrong (and they will), we're still standing."
+                data-lt="Mes teikiame pirmenybę kapitalo išsaugojimui, kruopščiai analizuodami riziką prieš vertindami potencialią grąžą. Visos investicijos privalo užtikrinti reikšmingą apsaugą nuo nuolatinių nuostolių pasitelkiant materialųjį turtą ir apdairius vertinimus."
+              >
+                The first rule is don't lose money. The second rule is see rule number one. We don't gamble with capital—every investment must have multiple layers of protection built in so when things go wrong (and they will), we're still standing.
+              </p>
+            </div>
+            <div class="principle">
+              <div class="principle-number">03</div>
+              <h3 data-en="Patient Fortitude" data-lt="Kantri tvirtybė">
+                Patient Fortitude
+              </h3>
+              <p
+                data-en="Market cycles make fools of everyone who lacks conviction. We ignore FOMO, meme stocks, and whatever Jim Cramer's yelling about. Real wealth comes from being greedy when others are fearful and having the courage to be right."
+                data-lt="Mes išlaikome drausmę per visus rinkos ciklus, vengdami kapitalą naikinančių madų ir spekuliacinių manijų. Tikrasis turtas kuriamas kantrybe, apgalvota analize ir ryžtingais veiksmais, kai pasitaiko proga."
+              >
+                Market cycles make fools of everyone who lacks conviction. We ignore FOMO, meme stocks, and whatever Jim Cramer's yelling about. Real wealth comes from being greedy when others are fearful and having the courage to be right.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Removed approach canvas -->
+      </section>
+
+      <!-- Philosophy -->
+      <section id="why-us" class="full-height">
+        <div class="section-background"></div>
+        <div class="container">
+          <div class="section-header">
+            <!-- <span
+              class="section-subtitle"
+              data-en="Our Values"
+              data-lt="Mūsų vertybės"
+              >Our Values</span
+            > -->
+            <h2 data-en="Our Philosophy" data-lt="Mūsų filosofija">
+              Our Philosophy
+            </h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p
+            class="section-intro"
+            data-en="Modern finance is a casino designed to extract fees from the uninformed. We've built a different model: buying and holding productive assets that make money regardless of market conditions. Simple, but not easy."
+            data-lt="Mes tikime, kad ilgalaikis turtas kuriamas drausmingai valdant produktyvų turtą ir verslus, o ne per spekuliacijas, finansinį svertą ar finansų inžineriją."
+          >
+            Modern finance is a casino designed to extract fees from the uninformed. We've built a different model: buying and holding productive assets that make money regardless of market conditions. Simple, but not easy.
+          </p>
+
+          <div class="philosophy-layout">
+            <div class="founder-essence">
+              <div class="quote-container">
+                <blockquote
+                  data-en="Look, 99% of what passes for wealth management is just rearranging deck chairs on the Titanic. Real wealth creation happens when you own high-quality, cash-flowing assets and have the discipline to hold them forever."
+                  data-lt="Tikrasis turto valdymas – tai atidus kapitalo išsaugojimas, kantri produktyvaus turto nuosavybė ir apgalvotas tiek finansinio, tiek filosofinio kapitalo perdavimas per kartas."
+                >
+                  "Look, 99% of what passes for wealth management is just rearranging deck chairs on the Titanic. Real wealth creation happens when you own high-quality, cash-flowing assets and have the discipline to hold them forever."
+                </blockquote>
+                <div class="quote-decoration"></div>
+                <p
+                  class="quote-attribution"
+                  data-en="— Skirmantas Paulavicius & Laurynas Pamparas"
+                  data-lt="— Skirmantas Paulavičius ir Laurynas Pamparas"
+                >
+                  — Skirmantas Paulavicius & Laurynas Pamparas
+                </p>
+              </div>
+              <!-- <div class="founder-image"></div> -->
+            </div>
+
+            <div class="distinction-points">
+              <div class="distinction">
+                <div class="distinction-icon">
+                  <div class="icon-independence"></div>
+                </div>
+                <h3
+                  data-en="Zero Conflicts of Interest"
+                  data-lt="Besąlygiška nepriklausomybė"
+                >
+                  Zero Conflicts of Interest
+                </h3>
+                <p
+                  data-en="We don't take commissions, sell products, or push strategies that don't work. We're completely free from the institutional BS that plagues the financial industry and corrupts almost every advisor you'll meet."
+                  data-lt="Mes išlaikome visišką laisvę nuo išorinio spaudimo, leidžiančią mums susitelkti tik į jūsų šeimos turto apsaugą ir didinimą per kartas."
+                >
+                  We don't take commissions, sell products, or push strategies that don't work. We're completely free from the institutional BS that plagues the financial industry and corrupts almost every advisor you'll meet.
+                </p>
+              </div>
+              <div class="distinction">
+                <div class="distinction-icon">
+                  <div class="icon-local"></div>
+                </div>
+                <h3 data-en="Skin in the Game" data-lt="Suderinti interesai">
+                  Skin in the Game
+                </h3>
+                <p
+                  data-en="We invest our own money exactly the same way we invest yours. If we lose, we lose together. If we win, we win together. Find me another wealth manager who'll put their net worth on the line like that."
+                  data-lt="Mes valdome savo kapitalą kartu su jūsiškiu, užtikrindami, kad mūsų sprendimai atspindėtų tikrą įsitikinimą, o ne abstrakčią teoriją ar įprastą mąstymą."
+                >
+                  We invest our own money exactly the same way we invest yours. If we lose, we lose together. If we win, we win together. Find me another wealth manager who'll put their net worth on the line like that.
+                </p>
+              </div>
+              <div class="distinction">
+                <div class="distinction-icon">
+                  <div class="icon-access"></div>
+                </div>
+                <h3
+                  data-en="Elite Access"
+                  data-lt="Institucinė kokybė"
+                >
+                  Elite Access
+                </h3>
+                <p
+                  data-en="The best opportunities aren't available to retail investors—period. Our structure gives you access to deals, research, and networks typically reserved for the billionaire class. We level the playing field."
+                  data-lt="Mūsų struktūra suteikia individualioms šeimoms prieigą prie investicinių galimybių, tyrimų ir patirties, paprastai prieinamų tik didžiausioms pasaulio institucijoms."
+                >
+                  The best opportunities aren't available to retail investors—period. Our structure gives you access to deals, research, and networks typically reserved for the billionaire class. We level the playing field.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-background gradient"></div>
+        <div class="container">
+          <div class="section-header">
+            <span
+              class="section-subtitle"
+              data-en="Get In Touch"
+              data-lt="Susisiekite"
+              >Get In Touch</span
+            >
+            <h2 data-en="Private Consultation" data-lt="Privati konsultacija">
+              Private Consultation
+            </h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p
+            class="section-intro"
+            data-en="We're extremely selective about who we work with. If you have serious capital to allocate and are tired of the Wall Street treadmill, let's talk. No pitch decks, no BS—just a direct conversation about what actually works."
+            data-lt="„Elysium" sąmoningai riboja klientų skaičių, siekiant užtikrinti aukščiausio lygio paslaugas ir dėmesį. Laukiame pokalbių su šeimomis, kurios pritaria mūsų įsipareigojimui principingam turto valdymui."
+          >
+            We're extremely selective about who we work with. If you have serious capital to allocate and are tired of the Wall Street treadmill, let's talk. No pitch decks, no BS—just a direct conversation about what actually works.
+          </p>
+
+          <div class="contact-container">
+            <div class="contact-info">
+              <h3 data-en="Direct Contact" data-lt="Tiesioginis kontaktas">
+                Direct Contact
+              </h3>
+              <div class="contact-method">
+                <span class="method-label" data-en="Email" data-lt="El. paštas"
+                  >Email</span
+                >
+                <a href="mailto:private@elysium.lt">private@elysium.lt</a>
+              </div>
+              <!-- <div class="contact-method">
+                <span
+                  class="method-label"
+                  data-en="Telephone"
+                  data-lt="Telefonas"
+                  >Telephone</span
+                >
+                <a href="tel:+37061234567">+370 612 34567</a>
+              </div> -->
+              <div class="contact-method">
+                <span class="method-label" data-en="Location" data-lt="Vieta"
+                  >Location</span
+                >
+                <span
+                  data-en="Gedimino pr. 20, Vilnius"
+                  data-lt="Gedimino pr. 20, Vilnius"
+                  >Gedimino pr. 20, Vilnius</span
+                >
+              </div>
+
+              <p
+                class="exclusivity-note"
+                data-en="By appointment only. No walk-ins. Serious inquiries from qualified families only."
+                data-lt="Tik pagal išankstinį susitarimą. Visos užklausos yra tvarkomos laikantis griežčiausio konfidencialumo."
+              >
+                By appointment only. No walk-ins. Serious inquiries from qualified families only.
+              </p>
+            </div>
+
+            <div class="contact-form-container">
+              <form id="contact-form" class="contact-form">
+                <div class="form-field">
+                  <label
+                    for="name"
+                    data-en="Full Name"
+                    data-lt="Vardas, Pavardė"
+                    >Full Name</label
+                  >
+                  <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="email"
+                    data-en="Email Address"
+                    data-lt="El. pašto adresas"
+                    >Email Address</label
+                  >
+                  <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="phone"
+                    data-en="Phone Number"
+                    data-lt="Telefono numeris"
+                    >Phone Number</label
+                  >
+                  <input type="tel" id="phone" name="phone" required />
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="investmentLevel"
+                    data-en="Investable Capital (€)"
+                    data-lt="Investuotinas kapitalas (€)"
+                    >Investable Capital (€)</label
+                  >
+                  <select id="investmentLevel" name="investmentLevel" required>
+                    <option
+                      value=""
+                      disabled
+                      selected
+                      data-en="Select range"
+                      data-lt="Pasirinkite intervalą"
+                    >
+                      Select range
+                    </option>
+                    <option
+                      value="1-5M"
+                      data-en="€1M - €5M"
+                      data-lt="1-5 mln. €"
+                    >
+                      €1M - €5M
+                    </option>
+                    <option
+                      value="5-10M"
+                      data-en="€5M - €10M"
+                      data-lt="5-10 mln. €"
+                    >
+                      €5M - €10M
+                    </option>
+                    <option
+                      value="10-50M"
+                      data-en="€10M - €50M"
+                      data-lt="10-50 mln. €"
+                    >
+                      €10M - €50M
+                    </option>
+                    <option value="50M+" data-en="€50M+" data-lt="50+ mln. €">
+                      €50M+
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="message"
+                    data-en="Your Situation"
+                    data-lt="Užklausos pobūdis"
+                    >Your Situation</label
+                  >
+                  <textarea id="message" name="message" rows="3"></textarea>
+                </div>
+
+                <div class="form-field privacy-consent">
+                  <input type="checkbox" id="privacy" name="privacy" required />
+                  <label
+                    for="privacy"
+                    data-en="I understand Elysium only works with a limited number of families"
+                    data-lt="Sutinku, kad „Elysium" susisiektų su manimi dėl mano užklausos."
+                    >I understand Elysium only works with a limited number of families</label
+                  >
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn-primary"
+                  data-en="Request Consultation"
+                  data-lt="Teikti užklausą"
+                >
+                  Request Consultation
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-logo">
+            <div class="logo" data-en="Elysium" data-lt="Elysium">Elysium</div>
+            <p
+              data-en="Capital Allocation That Actually Works"
+              data-lt="Turto valdymas įžvalgiems"
+            >
+              Capital Allocation That Actually Works
+            </p>
+          </div>
+
+          <div class="footer-contact">
+            <h4 data-en="Contact" data-lt="Kontaktai">Contact</h4>
+            <p
+              data-en="Gedimino pr. 20, Vilnius"
+              data-lt="Gedimino pr. 20, Vilnius"
+            >
+              Gedimino pr. 20, Vilnius
+            </p>
+            <!-- <p>+370 612 34567</p> -->
+            <p>private@elysium.lt</p>
+          </div>
+
+          <div class="footer-links">
+            <h4 data-en="Navigation" data-lt="Navigacija">Navigation</h4>
+            <a href="#what-we-do" data-en="What We Do" data-lt="Mūsų veikla"
+              >What We Do</a
+            >
+            <a href="#approach" data-en="Our Approach" data-lt="Mūsų požiūris"
+              >Our Approach</a
+            >
+            <a href="#why-us" data-en="Philosophy" data-lt="Filosofija"
+              >Philosophy</a
+            >
+            <a href="#contact" data-en="Contact" data-lt="Kontaktai">Contact</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p
+            data-en="© 2025 Elysium Family Office. All rights reserved."
+            data-lt="© 2025 „Elysium" šeimos biuras. Visos teisės saugomos."
+          >
+            © 2025 Elysium Family Office. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="animation.js"></script>
+    <script src="script.js"></script>
+    <script>
+      // Show body once everything is loaded
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.body.classList.add("loaded");
+        }, 200); // Small delay to ensure transitions are ready
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title
+      data-en="Elysium | The Anti-Wall Street Allocation Machine"
+      data-lt="Elysium | Turto valdymas įžvalgiems"
+    >
+      Elysium | The Anti-Wall Street Allocation Machine
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Critical loading styles to avoid FOUC */
+      body {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      body.loaded {
+        opacity: 1;
+      }
+
+      /* Transition logo specific styles */
+      .transition-logo {
+        font-family: "EB Garamond", serif;
+        color: #8b381e;
+        position: fixed;
+        z-index: 2000;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.5s ease;
+      }
+
+      /* Loading screen improvements */
+      #loading-screen {
+        background-color: #fffcf7;
+        transition: background-color 1.2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="loader-content">
+        <h1 class="loader-logo" data-en="Elysium" data-lt="Elysium">Elysium</h1>
+        <h2
+          class="hero-subtitle-loader"
+          data-en="Capital Allocation"
+          data-lt="Šeimos biuras"
+        >
+          Capital Allocation
+        </h2>
+        <p
+          class="hero-paragraph-loader"
+          data-en="We make rich people richer without the bullshit"
+          data-lt="Kapitalo išsaugojimas ir ilgalaikio turto kūrimas per kartas"
+        >
+          We make rich people richer without the bullshit
+        </p>
+        <div class="loader-bar"><span></span></div>
+      </div>
+      <canvas id="animation-canvas"></canvas>
+    </div>
+
+    <header>
+      <nav>
+        <div class="logo" data-en="Elysium" data-lt="Elysium">Elysium</div>
+        <div class="nav-links">
+          <a href="#thesis" data-en="Thesis" data-lt="Mūsų paslaugos"
+            >Thesis</a
+          >
+          <a href="#playbook" data-en="Playbook" data-lt="Mūsų požiūris"
+            >Playbook</a
+          >
+          <a href="#results" data-en="Results" data-lt="Filosofija"
+            >Results</a
+          >
+          <a
+            href="#track-record"
+            data-en="Track Record"
+            data-lt="Mūsų veikla"
+            >Track Record</a
+          >
+          <a
+            href="login.html"
+            class="nav-login"
+            data-en="Client Portal"
+            data-lt="Šeimos prisijungimas"
+            >Client Portal</a
+          >
+          <div class="lang-switcher-container">
+            <div class="lang-switcher">
+              <a href="#" data-lang="en" class="lang-option active">EN</a>
+              <span class="lang-separator">/</span>
+              <a href="#" data-lang="lt" class="lang-option">LT</a>
+            </div>
+          </div>
+          <a
+            href="#contact"
+            class="nav-cta"
+            data-en="Get Access"
+            data-lt="Kontaktai"
+            >Get Access</a
+          >
+        </div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="full-height">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 data-en="Invest Like an Owner, Not a Tourist" data-lt="Elysium">
+            Invest Like an Owner, Not a Tourist
+          </h1>
+          <div class="gold-accent"></div>
+          <p data-en="European access. Silicon Valley DNA. No legacy bullshit." data-lt="Kapitalo išsaugojimas ir ilgalaikio turto kūrimas per kartas">
+            European access. Silicon Valley DNA. No legacy bullshit.
+          </p>
+          <div class="hero-cta">
+            <a href="#thesis" class="btn-primary" data-en="See Our Thesis" data-lt="Prašyti privačios konsultacijos">See Our Thesis</a>
+          </div>
+        </div>
+        <div class="scroll-indicator"></div>
+      </section>
+
+      <!-- Investment Thesis -->
+      <section id="thesis" class="full-height">
+        <div class="section-background"></div>
+        <div class="container">
+          <div class="section-header">
+            <h2 data-en="The Elysium Thesis" data-lt="Mūsų veikla">The Elysium Thesis</h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p class="section-intro" data-en="Most wealth management is a tax on your ignorance. We're rebuilding it from first principles, operating at the intersection of global capital and actual value creation." data-lt="Elysium koncentruoja dėmesį į kapitalo išsaugojimą ir ilgalaikio turto kūrimą ribotai šeimų grupei, taikydama laikui nepavaldžius nuosavybės, kantrybės ir rūpestingo valdymo principus.">
+            Most wealth management is a tax on your ignorance. We're rebuilding it from first principles, operating at the intersection of global capital and actual value creation.
+          </p>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-globe"></div>
+              </div>
+              <h3 data-en="Macro Reality" data-lt="Kapitalo išsaugojimas">
+                Macro Reality
+              </h3>
+              <p data-en="The 60/40 portfolio is dead. Bonds are trash. Inflation is structural. Demographics are destiny. We position capital ahead of these realities while everyone else is still fighting the last war." data-lt="Jūsų turto apsauga nuo žalingo infliacijos, valiutos nuvertėjimo ir perteklinės rizikos poveikio, pasitelkiant apgalvotą, ilgalaikį turto valdymą.">
+                The 60/40 portfolio is dead. Bonds are trash. Inflation is structural. Demographics are destiny. We position capital ahead of these realities while everyone else is still fighting the last war.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-shield"></div>
+              </div>
+              <h3 data-en="Geographic Arbitrage" data-lt="Produktyvi nuosavybė">
+                Geographic Arbitrage
+              </h3>
+              <p data-en="Lithuania's EU position gives us unfair advantages: talent at 1/3 Western Europe costs, regulatory passporting across 27 countries, and front-row seats to Baltic innovation. All while operating in the most advanced EU fintech sandbox." data-lt="Dėmesys skiriamas produktyvių įmonių ir turto, turinčių ilgalaikę vertę, įsigijimui, kurie generuoja realią grąžą nepriklausomai nuo rinkos sąlygų ir ciklų.">
+                Lithuania's EU position gives us unfair advantages: talent at 1/3 Western Europe costs, regulatory passporting across 27 countries, and front-row seats to Baltic innovation. All while operating in the most advanced EU fintech sandbox.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-growth"></div>
+              </div>
+              <h3 data-en="Conviction Allocation" data-lt="Kartų planavimas">
+                Conviction Allocation
+              </h3>
+              <p data-en="Diversification is for people who don't know what they're doing. We build concentrated positions in businesses we deeply understand, with moats we can defend, run by operators we trust, producing cash flows that compound." data-lt="Struktūrų, kurios išsaugo šeimos turtą per kartas, kūrimas, suderinant finansinius interesus su filosofinėmis vertybėmis ir patikimais valdymo principais.">
+                Diversification is for people who don't know what they're doing. We build concentrated positions in businesses we deeply understand, with moats we can defend, run by operators we trust, producing cash flows that compound.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-insight"></div>
+              </div>
+              <h3 data-en="Structural Leverage" data-lt="Strateginės įžvalgos">
+                Structural Leverage
+              </h3>
+              <p data-en="We don't just invest—we build leverage through networks, regulatory positions, and knowledge transfers. €10M with us buys the same access, intelligence, and execution as €100M anywhere else because we've eliminated the middlemen tax." data-lt="Prieiga prie mūsų autorinių tyrimų ir kruopščiai išpuoselėto nepriklausomų ekspertų tinklo, kurie teikia įžvalgas, pranokstančias įprastinę finansinę analizę.">
+                We don't just invest—we build leverage through networks, regulatory positions, and knowledge transfers. €10M with us buys the same access, intelligence, and execution as €100M anywhere else because we've eliminated the middlemen tax.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="section-canvas-container">
+          <canvas id="services-canvas"></canvas>
+        </div>
+      </section>
+
+      <!-- The Elysium Playbook -->
+      <section id="playbook" class="full-height">
+        <div class="section-background diagonal"></div>
+        <div class="container">
+          <div class="section-header">
+            <h2 data-en="The Elysium Playbook" data-lt="Mūsų požiūris">The Elysium Playbook</h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p class="section-intro" data-en="We have a systematic framework that we've built over 15 years—across markets, cycles, and continents. It's not magic; it's just math and discipline executed relentlessly." data-lt="Mes atmetame trumpalaikes spekuliacijas ir pirmenybę teikiame kantriam kapitalo alokavimui. Mūsų požiūris grindžiamas produktyvaus turto ir verslų, turinčių vidinę vertę, kuri kaupiasi dešimtmečiais, nuosavybe.">
+            We have a systematic framework that we've built over 15 years—across markets, cycles, and continents. It's not magic; it's just math and discipline executed relentlessly.
+          </p>
+
+          <div class="approach-grid">
+            <div class="principle">
+              <div class="principle-number">01</div>
+              <h3 data-en="Free Cash Flow Machines" data-lt="Šeimininko mąstysena">
+                Free Cash Flow Machines
+              </h3>
+              <p data-en="We only buy businesses generating or capable of generating 20%+ cash-on-cash returns. If we can't explain exactly where and how the cash is generated, we don't touch it. No exceptions. No stories. No hypothetical TAMs." data-lt="Mąstome kaip nuolatiniai savininkai, o ne laikini turėtojai. Ši filosofija lemia visus investicinius sprendimus, nuo verslo įsigijimų iki vertybinių popierių pasirinkimo, pabrėžiant ilgalaikę vidinę vertę, o ne rinkos svyravimus.">
+                We only buy businesses generating or capable of generating 20%+ cash-on-cash returns. If we can't explain exactly where and how the cash is generated, we don't touch it. No exceptions. No stories. No hypothetical TAMs.
+              </p>
+            </div>
+            <div class="principle">
+              <div class="principle-number">02</div>
+              <h3 data-en="Five-Factor Framework" data-lt="Saugumo marža">
+                Five-Factor Framework
+              </h3>
+              <p data-en="Every investment passes our framework: 1) Cash flow durability, 2) Pricing power, 3) Regulatory moats, 4) Unit economics that improve with scale, and 5) Leadership with skin in the game. Most opportunities fail at least two factors—that's why we pass on 97% of what we see." data-lt="Mes teikiame pirmenybę kapitalo išsaugojimui, kruopščiai analizuodami riziką prieš vertindami potencialią grąžą. Visos investicijos privalo užtikrinti reikšmingą apsaugą nuo nuolatinių nuostolių pasitelkiant materialųjį turtą ir apdairius vertinimus.">
+                Every investment passes our framework: 1) Cash flow durability, 2) Pricing power, 3) Regulatory moats, 4) Unit economics that improve with scale, and 5) Leadership with skin in the game. Most opportunities fail at least two factors—that's why we pass on 97% of what we see.
+              </p>
+            </div>
+            <div class="principle">
+              <div class="principle-number">03</div>
+              <h3 data-en="Asymmetric Capital Deployment" data-lt="Kantri tvirtybė">
+                Asymmetric Capital Deployment
+              </h3>
+              <p data-en="We're not indexers. When we have high conviction, we deploy capital aggressively—sometimes 15-20% in a single position. This concentration has driven our outperformance. When the market gives us outlier opportunities, we take outlier positions." data-lt="Mes išlaikome drausmę per visus rinkos ciklus, vengdami kapitalą naikinančių madų ir spekuliacinių manijų. Tikrasis turtas kuriamas kantrybe, apgalvota analize ir ryžtingais veiksmais, kai pasitaiko proga.">
+                We're not indexers. When we have high conviction, we deploy capital aggressively—sometimes 15-20% in a single position. This concentration has driven our outperformance. When the market gives us outlier opportunities, we take outlier positions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section id="results" class="full-height">
+        <div class="section-background"></div>
+        <div class="container">
+          <div class="section-header">
+            <h2 data-en="The Only Metric That Matters" data-lt="Mūsų filosofija">
+              The Only Metric That Matters
+            </h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p class="section-intro" data-en="Since inception, we've generated 27% IRR for our family partners. During that time, European indexes returned 9%. Your €10M invested with us in 2015 would be worth €92M today instead of €19M with standard allocation strategies." data-lt="Mes tikime, kad ilgalaikis turtas kuriamas drausmingai valdant produktyvų turtą ir verslus, o ne per spekuliacijas, finansinį svertą ar finansų inžineriją.">
+            Since inception, we've generated 27% IRR for our family partners. During that time, European indexes returned 9%. Your €10M invested with us in 2015 would be worth €92M today instead of €19M with standard allocation strategies.
+          </p>
+
+          <div class="philosophy-layout">
+            <div class="founder-essence">
+              <div class="quote-container">
+                <blockquote data-en="Most families spend decades building wealth, then hand it to 'professionals' who destroy it through mediocrity, closet indexing, and fee extraction. We're rebuilding the model from zero with a single goal: maximizing cash-on-cash returns over decades." data-lt="Tikrasis turto valdymas – tai atidus kapitalo išsaugojimas, kantri produktyvaus turto nuosavybė ir apgalvotas tiek finansinio, tiek filosofinio kapitalo perdavimas per kartas.">
+                  "Most families spend decades building wealth, then hand it to 'professionals' who destroy it through mediocrity, closet indexing, and fee extraction. We're rebuilding the model from zero with a single goal: maximizing cash-on-cash returns over decades."
+                </blockquote>
+                <div class="quote-decoration"></div>
+                <p class="quote-attribution" data-en="— Skirmantas Paulavicius, Founder" data-lt="— Skirmantas Paulavičius ir Laurynas Pamparas">
+                  — Skirmantas Paulavicius, Founder
+                </p>
+              </div>
+            </div>
+
+            <div class="distinction-points">
+              <div class="distinction">
+                <div class="distinction-icon">
+                  <div class="icon-independence"></div>
+                </div>
+                <h3 data-en="We Eat Our Own Cooking" data-lt="Besąlygiška nepriklausomybė">
+                  We Eat Our Own Cooking
+                </h3>
+                <p data-en="We have over 70% of our net worth in the same investments as our clients. When you win, we win. When you lose, we lose more. Find me another wealth manager who'll make that commitment." data-lt="Mes išlaikome visišką laisvę nuo išorinio spaudimo, leidžiančią mums susitelkti tik į jūsų šeimos turto apsaugą ir didinimą per kartas.">
+                  We have over 70% of our net worth in the same investments as our clients. When you win, we win. When you lose, we lose more. Find me another wealth manager who'll make that commitment.
+                </p>
+              </div>
+              <div class="distinction">
+                <div class="distinction-icon">
+                  <div class="icon-local"></div>
+                </div>
+                <h3 data-en="No Bullshit Fee Structure" data-lt="Suderinti interesai">
+                  No Bullshit Fee Structure
+                </h3>
+                <p data-en="We charge 0% management fees and 25% of profits above a 6% hurdle. We make money only when you make a lot of money. That's it. No hidden fees, no kickbacks, no soft dollars, no revenue sharing. We get rich by making you rich." data-lt="Mes valdome savo kapitalą kartu su jūsiškiu, užtikrindami, kad mūsų sprendimai atspindėtų tikrą įsitikinimą, o ne abstrakčią teoriją ar įprastą mąstymą.">
+                  We charge 0% management fees and 25% of profits above a 6% hurdle. We make money only when you make a lot of money. That's it. No hidden fees, no kickbacks, no soft dollars, no revenue sharing. We get rich by making you rich.
+                </p>
+              </div>
+              <div class="distinction">
+                <div class="distinction-icon">
+                  <div class="icon-access"></div>
+                </div>
+                <h3 data-en="Extreme Selectivity" data-lt="Institucinė kokybė">
+                  Extreme Selectivity
+                </h3>
+                <p data-en="We accept only 8 new family relationships per year, each bringing €10M+ in investable capital. This isn't marketing bullshit—it's a structural requirement. Limited capacity is our competitive advantage. We'll close completely at 50 families." data-lt="Mūsų struktūra suteikia individualioms šeimoms prieigą prie investicinių galimybių, tyrimų ir patirties, paprastai prieinamų tik didžiausioms pasaulio institucijoms.">
+                  We accept only 8 new family relationships per year, each bringing €10M+ in investable capital. This isn't marketing bullshit—it's a structural requirement. Limited capacity is our competitive advantage. We'll close completely at 50 families.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Track Record -->
+      <section id="track-record" class="full-height">
+        <div class="section-background diagonal"></div>
+        <div class="container">
+          <div class="section-header">
+            <h2 data-en="Track Record" data-lt="Mūsų veikla">Track Record</h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p class="section-intro" data-en="Some of our best investment theses that have generated outsized returns for our family partners. Past performance doesn't guarantee future results, but our process does." data-lt="Elysium koncentruoja dėmesį į kapitalo išsaugojimą ir ilgalaikio turto kūrimą ribotai šeimų grupei, taikydama laikui nepavaldžius nuosavybės, kantrybės ir rūpestingo valdymo principus.">
+            Some of our best investment theses that have generated outsized returns for our family partners. Past performance doesn't guarantee future results, but our process does.
+          </p>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-globe"></div>
+              </div>
+              <h3 data-en="Baltic Tech Consolidation" data-lt="Kapitalo išsaugojimas">
+                Baltic Tech Consolidation
+              </h3>
+              <p data-en="We identified undervalued software companies across the Baltics, creating a roll-up that achieved 5x EBITDA growth in 3 years. Platform effect drove margins from 22% to 41% while competitors remained fragmented. Exited to PE at 11x our initial investment." data-lt="Jūsų turto apsauga nuo žalingo infliacijos, valiutos nuvertėjimo ir perteklinės rizikos poveikio, pasitelkiant apgalvotą, ilgalaikį turto valdymą.">
+                We identified undervalued software companies across the Baltics, creating a roll-up that achieved 5x EBITDA growth in 3 years. Platform effect drove margins from 22% to 41% while competitors remained fragmented. Exited to PE at 11x our initial investment.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-shield"></div>
+              </div>
+              <h3 data-en="Energy Transformation" data-lt="Produktyvi nuosavybė">
+                Energy Transformation
+              </h3>
+              <p data-en="Entered European renewable infrastructure during peak fossil fuel enthusiasm. Acquired 15 distressed wind and solar assets at 30% below replacement cost, renegotiated PPAs, and created a portfolio generating 14% unlevered yield with 20-year contracts." data-lt="Dėmesys skiriamas produktyvių įmonių ir turto, turinčių ilgalaikę vertę, įsigijimui, kurie generuoja realią grąžą nepriklausomai nuo rinkos sąlygų ir ciklų.">
+                Entered European renewable infrastructure during peak fossil fuel enthusiasm. Acquired 15 distressed wind and solar assets at 30% below replacement cost, renegotiated PPAs, and created a portfolio generating 14% unlevered yield with 20-year contracts.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-growth"></div>
+              </div>
+              <h3 data-en="Regulatory Arbitrage" data-lt="Kartų planavimas">
+                Regulatory Arbitrage
+              </h3>
+              <p data-en="Built a pan-European payment institution leveraging Lithuania's regulatory passport. Expanded to 27 EU markets with a single license while competitors needed individual approvals. Tech infrastructure deployed at 1/5th London cost, driving 72% gross margins." data-lt="Struktūrų, kurios išsaugo šeimos turtą per kartas, kūrimas, suderinant finansinius interesus su filosofinėmis vertybėmis ir patikimais valdymo principais.">
+                Built a pan-European payment institution leveraging Lithuania's regulatory passport. Expanded to 27 EU markets with a single license while competitors needed individual approvals. Tech infrastructure deployed at 1/5th London cost, driving 72% gross margins.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">
+                <div class="icon-insight"></div>
+              </div>
+              <h3 data-en="Hard Asset Conversion" data-lt="Strateginės įžvalgos">
+                Hard Asset Conversion
+              </h3>
+              <p data-en="Acquired struggling industrial properties in strategic EU transport corridors, converted to last-mile logistics infrastructure pre-pandemic. 7x increase in tenant demand during 2020-2022, allowing 3x rent increases on renewal. Portfolio now generates 26% cash yield on cost." data-lt="Prieiga prie mūsų autorinių tyrimų ir kruopščiai išpuoselėto nepriklausomų ekspertų tinklo, kurie teikia įžvalgas, pranokstančias įprastinę finansinę analizę.">
+                Acquired struggling industrial properties in strategic EU transport corridors, converted to last-mile logistics infrastructure pre-pandemic. 7x increase in tenant demand during 2020-2022, allowing 3x rent increases on renewal. Portfolio now generates 26% cash yield on cost.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-background gradient"></div>
+        <div class="container">
+          <div class="section-header">
+            <span
+              class="section-subtitle"
+              data-en="Limited Access"
+              data-lt="Susisiekite"
+              >Limited Access</span
+            >
+            <h2 data-en="8 Slots Remaining for 2025" data-lt="Privati konsultacija">
+              8 Slots Remaining for 2025
+            </h2>
+            <div class="section-decoration"></div>
+          </div>
+
+          <p
+            class="section-intro"
+            data-en="We're not for everyone. And everyone is not for us. Our minimum is €10M in investable capital and the capacity to think long-term. No exceptions. If that's you, we should talk. If not, there are plenty of mediocre advisors who'll take your money."
+            data-lt="„Elysium" sąmoningai riboja klientų skaičių, siekiant užtikrinti aukščiausio lygio paslaugas ir dėmesį. Laukiame pokalbių su šeimomis, kurios pritaria mūsų įsipareigojimui principingam turto valdymui."
+          >
+            We're not for everyone. And everyone is not for us. Our minimum is €10M in investable capital and the capacity to think long-term. No exceptions. If that's you, we should talk. If not, there are plenty of mediocre advisors who'll take your money.
+          </p>
+
+          <div class="contact-container">
+            <div class="contact-info">
+              <h3 data-en="Direct Access" data-lt="Tiesioginis kontaktas">
+                Direct Access
+              </h3>
+              <div class="contact-method">
+                <span class="method-label" data-en="Email" data-lt="El. paštas"
+                  >Email</span
+                >
+                <a href="mailto:private@elysium.lt">capital@elysium.lt</a>
+              </div>
+              <div class="contact-method">
+                <span class="method-label" data-en="Location" data-lt="Vieta"
+                  >Location</span
+                >
+                <span
+                  data-en="Gedimino pr. 20, Vilnius"
+                  data-lt="Gedimino pr. 20, Vilnius"
+                  >Gedimino pr. 20, Vilnius</span
+                >
+              </div>
+
+              <p
+                class="exclusivity-note"
+                data-en="We respond to qualified inquiries within 24 hours. No pitch decks, just direct conversation."
+                data-lt="Tik pagal išankstinį susitarimą. Visos užklausos yra tvarkomos laikantis griežčiausio konfidencialumo."
+              >
+                We respond to qualified inquiries within 24 hours. No pitch decks, just direct conversation.
+              </p>
+            </div>
+
+            <div class="contact-form-container">
+              <form id="contact-form" class="contact-form">
+                <div class="form-field">
+                  <label
+                    for="name"
+                    data-en="Full Name"
+                    data-lt="Vardas, Pavardė"
+                    >Full Name</label
+                  >
+                  <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="email"
+                    data-en="Email Address"
+                    data-lt="El. pašto adresas"
+                    >Email Address</label
+                  >
+                  <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="phone"
+                    data-en="Phone Number"
+                    data-lt="Telefono numeris"
+                    >Phone Number</label
+                  >
+                  <input type="tel" id="phone" name="phone" required />
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="investmentLevel"
+                    data-en="Capital Available (€)"
+                    data-lt="Investuotinas kapitalas (€)"
+                    >Capital Available (€)</label
+                  >
+                  <select id="investmentLevel" name="investmentLevel" required>
+                    <option
+                      value=""
+                      disabled
+                      selected
+                      data-en="Select range"
+                      data-lt="Pasirinkite intervalą"
+                    >
+                      Select range
+                    </option>
+                    <option
+                      value="10-20M"
+                      data-en="€10M - €20M"
+                      data-lt="10-20 mln. €"
+                    >
+                      €10M - €20M
+                    </option>
+                    <option
+                      value="20-50M"
+                      data-en="€20M - €50M"
+                      data-lt="20-50 mln. €"
+                    >
+                      €20M - €50M
+                    </option>
+                    <option
+                      value="50-100M"
+                      data-en="€50M - €100M"
+                      data-lt="50-100 mln. €"
+                    >
+                      €50M - €100M
+                    </option>
+                    <option value="100M+" data-en="€100M+" data-lt="100+ mln. €">
+                      €100M+
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label
+                    for="message"
+                    data-en="Capital Source & Timeline"
+                    data-lt="Užklausos pobūdis"
+                    >Capital Source & Timeline</label
+                  >
+                  <textarea id="message" name="message" rows="3"></textarea>
+                </div>
+
+                <div class="form-field privacy-consent">
+                  <input type="checkbox" id="privacy" name="privacy" required />
+                  <label
+                    for="privacy"
+                    data-en="I understand Elysium's €10M minimum and limited capacity"
+                    data-lt="Sutinku, kad „Elysium" susisiektų su manimi dėl mano užklausos."
+                    >I understand Elysium's €10M minimum and limited capacity</label
+                  >
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn-primary"
+                  data-en="Request Access"
+                  data-lt="Teikti užklausą"
+                >
+                  Request Access
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-logo">
+            <div class="logo" data-en="Elysium" data-lt="Elysium">Elysium</div>
+            <p
+              data-en="The Anti-Wall Street Allocation Machine"
+              data-lt="Turto valdymas įžvalgiems"
+            >
+              The Anti-Wall Street Allocation Machine
+            </p>
+          </div>
+
+          <div class="footer-contact">
+            <h4 data-en="Contact" data-lt="Kontaktai">Contact</h4>
+            <p
+              data-en="Gedimino pr. 20, Vilnius"
+              data-lt="Gedimino pr. 20, Vilnius"
+            >
+              Gedimino pr. 20, Vilnius
+            </p>
+            <p>capital@elysium.lt</p>
+          </div>
+
+          <div class="footer-links">
+            <h4 data-en="Navigation" data-lt="Navigacija">Navigation</h4>
+            <a href="#thesis" data-en="Thesis" data-lt="Mūsų veikla"
+              >Thesis</a
+            >
+            <a href="#playbook" data-en="Playbook" data-lt="Mūsų požiūris"
+              >Playbook</a
+            >
+            <a href="#results" data-en="Results" data-lt="Filosofija"
+              >Results</a
+            >
+            <a href="#contact" data-en="Get Access" data-lt="Kontaktai">Get Access</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p
+            data-en="© 2025 Elysium Capital Partners. All rights reserved."
+            data-lt="© 2025 „Elysium" šeimos biuras. Visos teisės saugomos."
+          >
+            © 2025 Elysium Capital Partners. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="animation.js"></script>
+    <script src="script.js"></script>
+    <script>
+      // Show body once everything is loaded
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.body.classList.add("loaded");
+        }, 200); // Small delay to ensure transitions are ready
+      });
+    </script>
+  </body>
+</html>
