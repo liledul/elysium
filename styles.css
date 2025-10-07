@@ -1908,8 +1908,10 @@ nav {
 
 /* Contact Section */
 .contact-container {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  /* display: grid;
+  grid-template-columns: 1fr 1.5fr; */
+  display: flex;
+  justify-content: center;
   gap: var(--spacing-xl);
   align-items: start;
   width: 100%;
